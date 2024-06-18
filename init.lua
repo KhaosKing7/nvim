@@ -1,4 +1,4 @@
-
+vim.g.mapleader = " "
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -21,11 +21,10 @@ set shiftwidth=2
 
 local opts = {}
 
-
 require("lazy").setup("plugins")
 
 require("catppuccin").setup({
-  flavour = "auto", -- latte, frappe, macchiato, mocha
+  flavour = "mocha", -- latte, frappe, macchiato, mocha
   background = { --  background
     light = "latte",
     dark = "mocha",
@@ -71,10 +70,10 @@ require("catppuccin").setup({
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
 })
-vim.cmd.colorscheme "catppuccin"
 require('lualine').setup()
-vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
-vim.keymap.set('n', '<C-m>', ':Neotree filesystem close left<CR>', {})
+vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal left<CR>', {})
+vim.keymap.set('n', '<leader>m', ':Neotree filesystem close left<CR>', {})
 
 
+vim.cmd.colorscheme "catppuccin"
 
